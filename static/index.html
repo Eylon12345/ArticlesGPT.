@@ -6,33 +6,52 @@
     <title>LLM Articles</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;400&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css"  rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         body {
-            font-family: 'Work Sans', Arial, Helvetica, sans-serif;
-            background: linear-gradient(to bottom, #6b46c1, #2f855a);
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            font-family: 'Inter', Arial, Helvetica, sans-serif;
+            background-color: #f8f9fa;
+            color: #404040;
         }
-        @keyframes flash {
-            0% {color: #57044d;}   /* hex value for yellow-500 in Tailwind CSS */
-            50% {color: #8cfffb;}
-            100% {color: #420446;}
+        .modal-open {
+            overflow: hidden;
+        }
+        .modal-open .modal {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        .modal {
+            position: fixed;
+            z-index: 1050;
+            top: 0;
+            left: 0;
+            display: none;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            outline: 0;
+        }
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1040;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000;
+            opacity: .5;
+            backdrop-filter: blur(10px);
         }
     </style>
 </head>
 <body>
-    <div class="container mx-auto px-4 text-center">
+    <div class="container mx-auto px-4 text-right">
         <h1 id="title" class="text-4xl font-bold my-10">
             <span class="uppercase">LATEST ARXIV Neurobiology PAPER SUMMARIES</span>
         </h1>
-        <div class="flex justify-center items-center mb-5">
+        <div class="flex justify-end items-center mb-5">
             <a href="https://www.deusbotx.com" class="bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded mr-4 text-lg" target="_blank">
                 Support
             </a>
@@ -40,24 +59,33 @@
                 Powered by <a href="http://www.deusbotx.com" class="text-red-800 hover:text-red-500" target="_blank">OpenAI</a>
             </span>
         </div>
-        <div class="flex justify-between items-center mb-5">
-            <p class="text-lg" style="animation: flash 6s linear infinite;">Updated every hour</p>
-            <p class="text-lg">Summaries are AI generated and may be inaccurate</p>
+        <div class="flex justify-end items-center mb-5">
+            <p class="text-lg">Updated every hour</p>
+            <p class="text-lg ml-4">Summaries are AI generated</p>
         </div>
         <div id="article-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!--
+            Example of a card. You can use this structure for each paper summary.
+            <div class="card bg-white">
+                <h2 class="text-2xl font-bold">Title</h2>
+                <p class="text-sm">Summary</p>
+            </div>
+            -->
         </div>
     </div>
 
     <!-- Modal for full summary -->
-    <div id="modal" class="fixed z-50 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <div class="fixed inset-0 bg-gray-700 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-            <div class="inline-block align-middle bg-gray-900 rounded-lg text-left overflow-hidden shadow-xl transform transition-all my-8 align-middle max-w-lg w-full">
-                <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                    <h3 id="modal-title" class="text-lg leading-6 font-medium text-white"></h3>
-                    <p id="modal-summary" class="mt-2 text-sm text-white"></p>
+    <div id="modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog">
+            <div class="modal-content bg-gray-900 text-white rounded-lg">
+                <div class="modal-header">
+                    <h3 id="modal-title" class="text-lg leading-6 font-medium"></h3>
                 </div>
-                <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                <div class="modal-body">
+                    <p id="modal-summary" class="mt-2 text-sm"></p>
+                </div>
+                <div class="modal-footer">
                     <button id="modal-close" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-700 text-base font-medium hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-900 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
                         Close
                     </button>
@@ -69,4 +97,3 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
 </body>
 </html>
-
