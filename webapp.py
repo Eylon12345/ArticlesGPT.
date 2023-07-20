@@ -28,8 +28,8 @@ def get_article_by_id(id: str, articles):
 
 def my_task():
     print("Paper retrieval task initiated")
-    keyword = "large AND language AND models"
-    n = 50
+    keyword = "Neurobiology AND Gentetic AND Engineering"
+    n = 20
     save_directory = "saved_articles"
     main_embed.main(keyword, n, save_directory)
     print("Paper retrieval task completed")
