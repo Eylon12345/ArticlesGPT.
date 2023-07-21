@@ -1,79 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LLM Articles</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;400&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Articles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-        <style>
-            body {
-                font-family: 'Inter', Arial, Helvetica, sans-serif;
-                font-size: 12px;
-            }
-            
-            .card {
-                background-color: white;
-                border: 1px solid lightgreen;
-            }
-            
-            .card h1 {
-                font-size: 18px;
-                font-weight: bold;
-            }
-        </style>
-    </head>
-    <body class="bg-gray-100 text-white min-h-screen">
-        <div class="container mx-auto px-4">
-            <h1 id="title" class="text-4xl font-bold my-10 flex justify-between items-center">
-                <span class="uppercase">LATEST ARXIV LLM PAPER SUMMARIES</span>
-                <div class="flex items-center">
-                    <a href="https://www.deusbotx.com" class="bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded mr-4 text-lg" target="_blank">
-                        Support
-                    </a>
-                    <span class="text-lg">
-                        Powered by <a href="http://www.deusbotx.com" class="text-red-800 hover:text-red-500" target="_blank">OpenAI</a>
-                    </span>
-                </div>
-            </h1>
-            <style>
-                @keyframes flash {
-                    0% {color: #961187;}   /* hex value for yellow-500 in Tailwind CSS */
-                    50% {color: #8cfffb;}
-                    100% {color: #83268a;}
-                }
-            </style>
-            <div class="flex justify-between items-center mb-5">
-                <p class="text-lg" style="animation: flash 6s linear infinite;">Updated every hour</p>
-                <p class="text-lg">Summaries are AI generated</p>
+    <style>
+        body {
+            font-family: 'Inter', Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: black; /* Set text color to black for improved visibility */
+        }
+
+        /* Card styles */
+        .card {
+            background-color: white;
+            border: 1px solid lightgreen;
+            padding: 1rem; /* Add padding for better spacing */
+            border-radius: 0.5rem; /* Add rounded corners to the cards */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a slight shadow effect */
+            margin-bottom: 1rem; /* Add margin between cards */
+        }
+
+        .card h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 0.5rem; /* Add margin below the title */
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #555; /* Use a slightly darker color for the summary text */
+            margin-bottom: 1rem; /* Add margin below the summary */
+        }
+
+        .card a {
+            font-size: 14px;
+            color: #4b0082; /* Use a dark purple color for the "Read the full article" link */
+            display: block; /* Display the link as a block element for proper spacing */
+        }
+
+        .card a:hover {
+            color: #32d154; /* Change link color on hover */
+        }
+
+        /* Additional styles for the modal */
+        /* ... */
+
+        /* Animation styles (you can customize this if needed) */
+        .uppercase {
+            animation: flash-improved 6s linear infinite;
+        }
+
+        @keyframes flash-improved {
+            0% {color: #ffbb00;}   /* yellow */
+            50% {color: #00c0ff;}  /* blue */
+            100% {color: #32d154;} /* purple */
+        }
+
+        /* Footer link style */
+        .footer-link {
+            color: #32d154; /* a shade of green */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4">
+        <h1 id="title" class="text-4xl font-bold my-10 flex justify-between items-center">
+            <span class="uppercase">LATEST ARXIV LLM PAPER SUMMARIES</span>
+            <div class="flex items-center">
+                <a href="https://www.deusbotx.com" class="bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded mr-4 text-lg footer-link" target="_blank">
+                    Support
+                </a>
+                <span class="text-lg footer-link">
+                    Powered by <a href="http://www.deusbotx.com" class="text-red-800 hover:text-red-500" target="_blank">OpenAI</a>
+                </span>
             </div>
-            <div id="article-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 card">
+        </h1>
+        <div class="flex justify-between items-center mb-5">
+            <p class="text-lg uppercase">Updated every hour</p>
+            <p class="text-lg">Summaries are AI generated</p>
+        </div>
+        <div id="article-container">
+            <!-- Articles will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Modal for full summary -->
+    <div id="modal" class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div id="modal-backdrop" class="fixed inset-0 bg-gray-700 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-gray-900 text-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <h3 id="modal-title" class="text-lg leading-6 font-medium"></h3>
+                    <p id="modal-summary" class="mt-2 text-sm"></p>
+                </div>
+                <div class="bg-gray-800 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button id="modal-close" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-700 text-base font-medium hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-900 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                        Close
+                    </button>
+                </div>
             </div>
         </div>
+    </div>
 
-        <!-- Modal for full summary -->
-        <div id="modal" class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                <div id="modal-backdrop" class="fixed inset-0 bg-gray-700 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-                <div class="inline-block align-bottom bg-gray-900 text-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                    <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                        <h3 id="modal-title" class="text-lg leading-6 font-medium"></h3>
-                        <p id="modal-summary" class="mt-2 text-sm"></p>
-                    </div>
-                    <div class="bg-gray-800 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                        <button id="modal-close" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-700 text-base font-medium hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-900 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
-                            Close
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script src="main.js"></script>
-    </body>
+    <script src="main.js"></script>
+</body>
 </html>
