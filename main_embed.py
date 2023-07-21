@@ -54,7 +54,7 @@ def summarize_article(text):
         stream=True,
         max_tokens=1000,
         messages=[
-            {"role": "system", "content": "You are a helpful assistant which summarizes scientific papers in an easy and understandable concise way. your goal is to create a summary, create up to 10 bullet points about the most important things about the paper and upt t0 10 relevant keywords."},
+            {"role": "system", "content": "You are a helpful assistant which summarizes scientific papers in an easy and understandable concise way. your goal is to create a summary, create up to 10 bullet points about the most important things about the paper and upt to 5 relevant keywords."},
             {"role": "user", "content": f"Please return a summary the following text and extract up to 10 bullet points and top 3 relevant keywords: {text}"}
         ]
     )
@@ -122,7 +122,7 @@ def main(keyword, n, save_directory):
 
 
 if __name__ == "__main__":
-    keyword = "large AND language AND models"
+    keyword = "Neuroscience"
     n = 100
     save_directory = "saved_articles"
     main(keyword, n, save_directory)
