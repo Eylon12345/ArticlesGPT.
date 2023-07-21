@@ -92,13 +92,21 @@ function searchArticles() {
 
 function addArticleToDOM(article) {
     const articleDiv = document.createElement('div');
-    articleDiv.classList.add('bg-white-800', 'shadow-lg', 'rounded-lg', 'overflow-hidden', 'p-4', 'text-white', 'transition-colors', 'duration-200', 'hover:bg-gray-300', 'cursor-pointer');
+    articleDiv.classList.add('summery-preview', 'shadow-lg', 'overflow-hidden', 'transition-colors', 'duration-200');
     let displayTitle = article.title.length > 100 ? article.title.substr(0, 30) + '...' : article.title;
     let displaySummary = article.summary.length > 300 ? article.summary.substr(0, 300) + '...' : article.summary;
     articleDiv.innerHTML = `
+        <div>
+        <div class="summery-preview-title">
         <h2 class="text-xl font-bold mb-4" style="color: black; font-weight: 900;">${displayTitle}</h2>
-        <p class="text-gray-600">${displaySummary}</p>
+        </div>
+        <div class="p-4">
+        <p class="text-gray-600" style="font-size: 14px">${displaySummary}</p>
+        </div>
+        </div>
+        <div >
         <a href="${article.url}" target="_blank" class="mt-2 text-indigo-500 hover:text-indigo-400">Read the full article</a>
+        </div>
     `;
     const articleLink = articleDiv.querySelector('a');
     articleLink.addEventListener('click', (event) => {
