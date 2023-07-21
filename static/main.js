@@ -21,44 +21,44 @@ window.addEventListener('scroll', () => {
 });
 
 
-window.addEventListener("DOMContentLoaded", (event) => {
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let interval = null;
+// window.addEventListener("DOMContentLoaded", (event) => {
+//     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//     let interval = null;
 
-    function startAnimation(target) {
-        let iteration = 0;
+//     function startAnimation(target) {
+//         let iteration = 0;
 
-        clearInterval(interval);
+//         clearInterval(interval);
 
-        interval = setInterval(() => {
-            target.innerText = target.innerText
-                .split("")
-                .map((letter, index) => {
-                    if(index < iteration) {
-                        return target.dataset.value[index];
-                    }
+//         interval = setInterval(() => {
+//             target.innerText = target.innerText
+//                 .split("")
+//                 .map((letter, index) => {
+//                     if(index < iteration) {
+//                         return target.dataset.value[index];
+//                     }
 
-                    return letters[Math.floor(Math.random() * 26)];
-                })
-                .join("");
+//                     return letters[Math.floor(Math.random() * 26)];
+//                 })
+//                 .join("");
           
-            if(iteration >= target.dataset.value.length){ 
-                clearInterval(interval);
-            }
+//             if(iteration >= target.dataset.value.length){ 
+//                 clearInterval(interval);
+//             }
           
-            iteration += 1 ;
-        }, 30);
-    }
+//             iteration += 1 ;
+//         }, 30);
+//     }
 
-    const target = document.querySelector(".uppercase");
-    target.dataset.value = target.innerText;  // Store original text
+//     const target = document.querySelector(".uppercase");
+//     target.dataset.value = target.innerText;  // Store original text
 
-    startAnimation(target);
+//     startAnimation(target);
 
-    target.addEventListener('mouseover', function() {
-        startAnimation(this);
-    });
-});
+//     target.addEventListener('mouseover', function() {
+//         startAnimation(this);
+//     });
+// });
 
 modalClose.addEventListener('click', () => {
     modal.classList.add('hidden');
@@ -98,14 +98,14 @@ function addArticleToDOM(article) {
     articleDiv.innerHTML = `
         <div>
         <div class="summery-preview-title">
-        <h2 class="text-xl font-bold mb-4" style="color: black; font-weight: 900;">${displayTitle}</h2>
+        <h2 class="text-xl font-bold mb-4" style="color: black; font-weight: 300;">${displayTitle}</h2>
         </div>
         <div class="p-4">
         <p class="text-gray-600" style="font-size: 14px">${displaySummary}</p>
         </div>
         </div>
-        <div >
-        <a href="${article.url}" target="_blank" class="mt-2 text-indigo-500 hover:text-indigo-400">Read the full article</a>
+        <div class="p-4">
+        <a href="${article.url}" target="_blank" class="text-indigo-500 hover:text-indigo-400">Read the full article</a>
         </div>
     `;
     const articleLink = articleDiv.querySelector('a');

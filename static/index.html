@@ -80,14 +80,15 @@ body {
 }
 
 .summery-preview:hover {
-    background-color: gainsboro;
+    background-color: rgba(0, 0, 0, 0.1);
     color: black; 
 }
 
 .summery-preview-title {
     width: 100%;
     font-size: 18px;
-    background: linear-gradient(90.2deg, rgba(255, 205, 205, 0.5) 0.07%, rgba(144, 2, 255, 0.5) 99.73%, rgba(255, 228, 228, 0) 99.73%);
+    background: rgba(110,231,183,var(--tw-bg-opacity)); /*linear-gradient(90.2deg, rgba(255, 205, 205, 0.5) 0.07%, rgba(144, 2, 255, 0.5) 99.73%, rgba(255, 228, 228, 0) 99.73%);*/
+    padding: 1rem;
 }
 
 
@@ -98,10 +99,10 @@ body {
 <h1 class="text-4xl font-bold my-10 flex justify-between items-center" id="title">
 <span class="uppercase">LATEST ARXIV NEUROSCIENCE PAPER SUMMARIES</span>
 <div class="flex items-center">
-<a class="bg-green-300 hover:bg-green-200 text-white font-bold py-2 px-4 rounded mr-4 text-lg footer-link" href="https://www.deusbotx.com/about" target="_blank">
+<a class="bg-green-300 hover:bg-green-200 text-white font-bold py-2 px-4 rounded mr-4 text-lg" href="https://www.deusbotx.com/about" target="_blank">
     Support
 </a>
-<span class="text-lg footer-link" style="color: lightgreen;">
+<span class="text-lg footer-link" style="color: rgb(88, 246, 164);">
     Powered by <a class="text-green-600 hover:text-green-500" href="http://www.deusbotx.com" target="_blank">OpenAI</a>
 </span>
 </div>
