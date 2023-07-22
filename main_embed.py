@@ -54,8 +54,8 @@ def summarize_article(text):
         stream=True,
         max_tokens=1000,
         messages=[
-            {"role": "system", "content": "You are a helpful assistant which summarizes scientific papers in an easy and understandable concise way. your goal is to create a summary, create up to 10 bullet points about the most important things about the paper and upt to 5 relevant keywords."},
-            {"role": "user", "content": f"Please return a summary the following text and extract up to 10 bullet points and top 5 relevant keywords: {text}"}
+            {"role": "system", "content":  "You are a high-level AI assistant capable of comprehending and summarizing complex scientific content. Your task is to digest this scientific paper and present the information in an accessible, understandable manner. Your response should include a general summary of the paper, the most crucial points outlined in up to 10 bullet points, and the top 5 relevant keywords. Bear in mind the need to translate technical language into layman's terms wherever possible, and to prioritize the main findings, implications, and novelty of the work."},
+            {"role": "user", "content": f"Here is a scientific paper that requires your expertise for summary: {text}"}
         ]
     )
 

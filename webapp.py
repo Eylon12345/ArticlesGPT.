@@ -29,7 +29,7 @@ def get_article_by_id(id: str, articles):
 def my_task():
     print("Paper retrieval task initiated")
     keyword = "Neuroscience"
-    n = 1
+    n = 10
     save_directory = "saved_articles"
     main_embed.main(keyword, n, save_directory)
     print("Paper retrieval task completed")
@@ -45,8 +45,8 @@ async def startup_event():
 @app.get("/articles/")
 async def read_articles(page: Optional[int] = 1):
     articles = load_articles_from_csv()
-    start = (page - 1) * 16
-    end = start + 16
+    start = (page - 1) * 1  
+    end = start + 1  
     paginated_articles = articles[start:end]
     return paginated_articles
 
