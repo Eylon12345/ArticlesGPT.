@@ -87,13 +87,19 @@ body {
 .summery-preview-title {
     width: 100%;
     font-size: 18px;
-    background: rgba(110,231,183,var(--tw-bg-opacity)); /*linear-gradient(90.2deg, rgba(255, 205, 205, 0.5) 0.07%, rgba(144, 2, 255, 0.5) 99.73%, rgba(255, 228, 228, 0) 99.73%);*/
+    background: #32d154;  /* Green color for headline background */
     padding: 1rem;
 }
 
 @media (max-width: 600px) {
+  .container {
+    width: 100%;
+    padding: 0;
+  }
+
   #article-container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
   }
 
   #modal {
@@ -109,6 +115,16 @@ body {
     display: flex;
     flex-direction: column;
   }
+}
+
+/* Green color for close button */
+button#modal-close {
+    background-color: #32d154;  
+    color: white;
+    border: none;
+}
+button#modal-close:hover {
+    background-color: #279c4a;
 }
 </style>
 </head>
