@@ -81,6 +81,7 @@ def search_similar_articles(query, df):
     return df.iloc[top_index]
 
 def main(keyword, n, save_directory):
+    print(f"MAIN! {keyword}")
     create_directory(save_directory)
     saved_filenames = set(os.listdir(save_directory))
     search = arxiv.Search(
@@ -96,6 +97,7 @@ def main(keyword, n, save_directory):
     df_new = pd.DataFrame(columns=["title", "summary", "url", "embedding"])
     for i, result in enumerate(search.results()):
         filename = sanitize_filename(result.title) + ".txt"
+        print(f"TITLE: {result.title}")
         if filename in saved_filenames:
             print(f"Article {i+1} already saved.")
             continue
