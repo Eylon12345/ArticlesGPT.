@@ -2,155 +2,165 @@
 
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Neuroscience Articles</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;400&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<link href="favicon.ico" rel="icon" type="image/x-icon"/>
-<style>
-body {
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    color: black;
-    background-color: white;
-    overflow-x: hidden;
-}
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Neuroscience Articles</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;400&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="favicon.ico" rel="icon" type="image/x-icon"/>
+    <style>
+        body {
+            font-family: 'Inter', Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: black;
+            background-color: white;
+            overflow-x: hidden;
+        }
 
-#article-container {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-}
+        #article-container {
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
 
-.card {
-    background-color: white;
-    border: 1px solid lightgreen;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem;
-}
+        .card {
+            background-color: white;
+            border: 1px solid lightgreen;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
 
-.card h2 {
-    font-size: 18px;
-    font-weight: bold;
-}
+        .card h2 {
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-.card p {
-    font-size: 12px;
-    color: #555;
-    margin-bottom: 1rem;
-}
+        .card p {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 1rem;
+        }
 
-.card a {
-    font-size: 12px;
-    color: #3d51ff;
-    display: block;
-}
+        .card a {
+            font-size: 12px;
+            color: #3d51ff;
+            display: block;
+        }
 
-.card a:hover {
-    color: #32d154;
-}
+        .card a:hover {
+            color: #32d154;
+        }
 
-.uppercase {
-    animation: flash-improved 6s linear infinite;
-}
+        .uppercase {
+            animation: flash-improved 6s linear infinite;
+        }
 
-@keyframes flash-improved {
-    0% {color: #6912ff;}
-    50% {color: #00c0ff;}
-    100% {color: #db54fd;}
-}
+        @keyframes flash-improved {
+            0% {color: #6912ff;}
+            50% {color: #00c0ff;}
+            100% {color: #db54fd;}
+        }
 
-.footer-link {
-    color: #32d154;
-}
+        .footer-link {
+            color: #32d154;
+        }
 
-.summery-preview {
-    background-color: white;
-    border-radius: 0.6rem;
-    cursor: pointer;
-    color: gray;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+        .summery-preview {
+            background-color: white;
+            border-radius: 0.6rem;
+            cursor: pointer;
+            color: gray;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-.summery-preview:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: black; 
-}
+        .summery-preview:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            color: black; 
+        }
 
-.summery-preview-title {
-    width: 100%;
-    font-size: 18px;
-    background: rgba(110,231,183,var(--tw-bg-opacity)); /*linear-gradient(90.2deg, rgba(255, 205, 205, 0.5) 0.07%, rgba(144, 2, 255, 0.5) 99.73%, rgba(255, 228, 228, 0) 99.73%);*/
-    padding: 1rem;
-}
+        .summery-preview-title {
+            width: 100%;
+            font-size: 18px;
+            background: rgba(110,231,183,var(--tw-bg-opacity));
+            padding: 1rem;
+        }
 
-@media (max-width: 600px) {
-  #article-container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
+        @media (max-width: 600px) {
+          #article-container {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          }
 
-  #modal {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-  }
+          #modal {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+          }
 
-  .modal-content {
-    margin: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-}
-</style>
+          .modal-content {
+            margin: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+          }
+        }
+
+        /* New CSS added */
+        h1#title {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        h1#title > .flex.items-center {
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+    </style>
 </head>
 <body class="bg-white min-h-screen">
-<div class="container mx-auto px-4">
-<h1 class="text-4xl font-bold my-10 flex justify-between items-center" id="title">
-<span class="uppercase">LATEST ARXIV NEUROSCIENCE PAPER SUMMARIES</span>
-<div class="flex items-center">
-<a class="bg-green-300 hover:bg-green-200 text-white font-bold py-2 px-4 rounded mr-4 text-lg" href="https://www.deusbotx.com/about" target="_blank">
-    Support
-</a>
-<span class="text-lg footer-link" style="color: rgb(88, 246, 164);">
-    Powered by <a class="text-green-200 hover:text-green-100" href="http://www.deusbotx.com" target="_blank">OpenAI</a>
-</span>
-</div>
-</h1>
-<div class="flex justify-between items-center mb-5">
-<p class="text-lg uppercase">Updated every hour</p>
-<!-- <p class="text-lg">Summaries are AI generated</p> -->
-</div>
-<div id="article-container">
-<!-- Articles will be dynamically added here -->
-</div>
-</div>
-<!-- Modal for full summary -->
-<div aria-labelledby="modal-title" aria-modal="true" class="fixed z-10 inset-0 overflow-y-auto hidden" id="modal" role="dialog">
-<div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-<div aria-hidden="true" class="fixed inset-0 bg-gray-700 bg-opacity-75 transition-opacity" id="modal-backdrop"></div>
-<span aria-hidden="true" class="hidden sm:inline-block sm:align-middle sm:h-screen">​</span>
-<div class="inline-block align-bottom bg-gray-900 text-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-<div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-<h3 class="text-lg leading-6 font-medium" id="modal-title"></h3>
-<p class="mt-2 text-sm" id="modal-summary"></p>
-</div>
-<div class="bg-gray-800 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-<button class="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-700 text-base font-medium hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-900 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" id="modal-close" type="button">
+    <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold my-10" id="title">
+            <span class="uppercase block mb-4">LATEST ARXIV NEUROSCIENCE PAPER SUMMARIES</span>
+            <a class="bg-green-300 hover:bg-green-200 text-white font-bold py-2 px-4 rounded mr-4 text-lg block mb-2" href="https://www.deusbotx.com/about" target="_blank">
+                Support
+            </a>
+            <span class="text-lg footer-link" style="color: rgb(88, 246, 164);">
+                Powered by <a class="text-green-200 hover:text-green-100" href="http://www.deusbotx.com" target="_blank">OpenAI</a>
+            </span>
+        </h1>
+        <div class="flex justify-between items-center mb-5">
+            <p class="text-lg uppercase">Updated every hour</p>
+        </div>
+        <div id="article-container">
+            <!-- Articles will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Modal for full summary -->
+    <div aria-labelledby="modal-title" aria-modal="true" class="fixed z-10 inset-0 overflow-y-auto hidden" id="modal" role="dialog">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div aria-hidden="true" class="fixed inset-0 bg-gray-700 bg-opacity-75 transition-opacity" id="modal-backdrop"></div>
+            <span aria-hidden="true" class="hidden sm:inline-block sm:align-middle sm:h-screen">​</span>
+            <div class="inline-block align-bottom bg-gray-900 text-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <h3 class="text-lg leading-6 font-medium" id="modal-title"></h3>
+                    <p class="mt-2 text-sm" id="modal-summary"></p>
+                </div>
+                <div class="bg-gray-800 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button class="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-700 text-base font-medium hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-900 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" id="modal-close" type="button">
                         Close
                     </button>
-</div>
-</div>
-</div>
-</div>
-<script src="main.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
