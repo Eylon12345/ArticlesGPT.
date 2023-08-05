@@ -124,7 +124,7 @@ def main(keyword, n, save_directory):
 
 
 if __name__ == "__main__":
-    keyword = "Neuroscience"
+    keyword = "quantum"
     n = 100
     save_directory = "saved_articles"
     main(keyword, n, save_directory)
