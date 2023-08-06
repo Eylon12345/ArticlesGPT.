@@ -50,9 +50,9 @@ def summarize_article(text):
     if num_tokens > 15000:
         text = text[:15000]
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo-16k-0613",
+        model="gpt-4-0613",
         stream=True,
-        max_tokens=1000,
+        max_tokens=800,
         messages=[
             {"role": "system", "content":  "You are a high-level AI assistant capable of comprehending and summarizing complex scientific content. Your task is to digest this scientific paper and present the information in an accessible, understandable manner. Bear in mind the need to translate technical language into layman's terms wherever possible, and to prioritize the main findings, implications, and novelty of the work."},
             {"role": "user", "content": f"Here is a scientific paper that requires your expertise for short and clear summary, 5 uniqe bullet points, and the top 5 relevant keywords: {text}"}
