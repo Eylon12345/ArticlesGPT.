@@ -50,7 +50,7 @@ def summarize_article(text):
     if num_tokens > 15000:
         text = text[:15000]
     response = openai.ChatCompletion.create(
-        model="gpt-4-0613",
+        model="gpt-3.5-turbo-16k-0613",
         stream=True,
         max_tokens=800,
         messages=[
@@ -124,7 +124,7 @@ def main(keyword, n, save_directory):
 
 
 if __name__ == "__main__":
-    keyword = "Superconductor"
+    keyword = "Brain"
     n = 100
     save_directory = "saved_articles"
     main(keyword, n, save_directory)
